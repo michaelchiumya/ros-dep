@@ -29,8 +29,6 @@ public class ItemController {
     @GetMapping(path="/items")
     public List<Item> getItems(){
         List<Item> items = itemService.getAll();
-
-
         return items;
     }
 
