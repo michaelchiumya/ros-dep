@@ -3,6 +3,8 @@ package io.rosapp.rosapplication.services;
 import io.rosapp.rosapplication.entities.Item;
 import io.rosapp.rosapplication.repositories.ItemRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -39,8 +41,8 @@ public class ItemService {
         return itemRepository.findById(id).get();
     }
 
-    public Iterable<Item> getAll() {
-        return itemRepository.findAll();
+    public List<Item> getAll() {
+        return (List<Item>) itemRepository.findAll();
     }
 
     public Item remove(long id){

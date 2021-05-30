@@ -24,6 +24,6 @@ public class Menu {
     private String type;
     private String description;
     @OneToMany(mappedBy = "menu")
-    private List<Item> items = new ArrayList<>();
+    private List<Item> items;
 
 }

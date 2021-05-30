@@ -30,8 +30,8 @@ public class MenuController {
 
     @GetMapping(path="/menus")
     public List<Menu> getMenus(){
-        List<Menu> menus = new ArrayList<>();
-        menuService.getAll().forEach(menus::add);
+
+       List<Menu> menus = menuService.getAll();
         return menus;
     }
 

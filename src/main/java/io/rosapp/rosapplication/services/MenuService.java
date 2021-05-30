@@ -5,6 +5,7 @@ import io.rosapp.rosapplication.entities.Menu;
 import io.rosapp.rosapplication.repositories.MenuRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -43,8 +44,8 @@ public class MenuService {
         return menuRepository.findById(id).get();
     }
 
-    public Iterable<Menu> getAll() {
-        return menuRepository.findAll();
+    public List<Menu> getAll() {
+        return (List<Menu>) menuRepository.findAll();
     }
 
     public Menu remove(long id){
