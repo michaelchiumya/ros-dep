@@ -14,7 +14,7 @@
 	<name>ros-application</name>
 	<description>Backend API for ROS software application</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>8</java.version>
 		<groovy.version>3.0.7</groovy.version>
 		<rest-assured.version>4.3.3</rest-assured.version>
 	</properties>
