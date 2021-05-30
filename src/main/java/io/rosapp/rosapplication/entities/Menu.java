@@ -1,10 +1,9 @@
 package io.rosapp.rosapplication.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
-import javax.persistence.Table;
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -23,7 +22,8 @@ public class Menu {
     private boolean active;
     private String type;
     private String description;
-    @OneToMany(mappedBy = "menu")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "menu",fetch = FetchType.LAZY)
+    @JsonManagedReference
     private List<Item> items;
 
 }

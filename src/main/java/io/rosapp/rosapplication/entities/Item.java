@@ -1,5 +1,6 @@
 package io.rosapp.rosapplication.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -23,8 +24,9 @@ public class Item {
     private boolean special_of_the_day;
     private double price;
     private String description;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "menu_id", nullable = false)
+    @JsonBackReference
     private Menu menu;
 
 }
