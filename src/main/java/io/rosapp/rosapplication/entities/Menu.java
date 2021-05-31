@@ -24,6 +24,6 @@ public class Menu {
     private String description;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "menu",fetch = FetchType.LAZY)
     @JsonManagedReference
-    private List<Item> items;
+    private List<ItemOnMenu> items;
 
 }
