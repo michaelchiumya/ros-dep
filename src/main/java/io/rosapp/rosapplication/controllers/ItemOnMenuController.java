@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
 @AllArgsConstructor
 @RequestMapping("/api/v1")
 @RestController

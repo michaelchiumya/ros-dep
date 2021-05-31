@@ -1,11 +1,11 @@
 package io.rosapp.rosapplication.repositories;
 
-import io.rosapp.rosapplication.entities.Ordar;
+import io.rosapp.rosapplication.entities.Sale;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface OrderRepository extends CrudRepository<Ordar, Long > {
+public interface OrderRepository extends CrudRepository<Sale, Long > {
 
-   List<Ordar> findByStaffId(long id);
+   List<Sale> findByStaffId(long id);
 }

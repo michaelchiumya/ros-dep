@@ -12,8 +12,8 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-@Table(name = "ordar")//changing class name to 'order' conflicts with jpa/sql key word 'order'
-public class Ordar {
+@Table(name = "sale")//changing class name to 'order' conflicts with jpa/sql key word 'order'
+public class Sale {
 
     @Id @NonNull
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,10 +21,17 @@ public class Ordar {
     private String status;
     private Date taken;
     private Date served;
+
     @ManyToOne
     @JoinColumn(name = "staff_id", nullable = false)
     @JsonBackReference
     Staff staff;
+
+    @ManyToOne
+    @JoinColumn(name = "seat_id", nullable = false)
+    @JsonBackReference
+    Seat seat;
+
 
 
 }

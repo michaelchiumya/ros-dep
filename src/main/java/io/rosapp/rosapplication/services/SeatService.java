@@ -1,10 +1,13 @@
 package io.rosapp.rosapplication.services;
 
 import io.rosapp.rosapplication.entities.Seat;
+import io.rosapp.rosapplication.entities.Sale;
 import io.rosapp.rosapplication.repositories.SeatRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
+
 
 @Service
 public class SeatService {
@@ -14,6 +17,7 @@ public class SeatService {
     public SeatService(SeatRepository seatRepository) {
         this.seatRepository = seatRepository;
     }
+
 
     public void update(Seat seat, long id) {
 
@@ -44,4 +48,8 @@ public class SeatService {
         seatRepository.deleteById(seat.getId());
         return seat;
     }
+
+//    public List<Sale> getOrdersBySeatId(long id) {
+//        return (List<Sale>) seatRepository.findBySaleId(id);
+//    }
 }

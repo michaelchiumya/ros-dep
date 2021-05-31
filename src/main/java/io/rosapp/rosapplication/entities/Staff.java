@@ -23,6 +23,6 @@ public class Staff {
     private String password;
     @OneToMany(cascade = CascadeType.ALL , mappedBy = "staff",fetch = FetchType.LAZY)
     @JsonManagedReference
-    List<Ordar> orders ;
+    List<Sale> sales ;
 
 }

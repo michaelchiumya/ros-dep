@@ -1,6 +1,5 @@
 package io.rosapp.rosapplication.services;
 
-import io.rosapp.rosapplication.entities.Item;
 import io.rosapp.rosapplication.entities.Menu;
 import io.rosapp.rosapplication.repositories.MenuRepository;
 import org.springframework.stereotype.Service;

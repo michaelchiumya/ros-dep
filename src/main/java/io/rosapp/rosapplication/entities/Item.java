@@ -12,7 +12,6 @@ import javax.persistence.*;
 @MappedSuperclass
 public class Item {
 
-
     private String name;
     private boolean active;
     private String type;

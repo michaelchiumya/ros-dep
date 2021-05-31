@@ -1,11 +1,8 @@
 package io.rosapp.rosapplication.services;
 
-import io.rosapp.rosapplication.entities.ItemOnMenu;
-import io.rosapp.rosapplication.entities.Ordar;
+import io.rosapp.rosapplication.entities.Sale;
 import io.rosapp.rosapplication.repositories.OrderRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.Date;
 import java.util.List;
@@ -20,46 +17,46 @@ public class OrderService {
         this.orderRepository = orderRepository;
     }
 
-    public void update(Ordar ordar, long id) {
+    public void update(Sale order, long id) {
 
-        Optional<Ordar> orderBox =  orderRepository.findById(id);
+        Optional<Sale> orderBox =  orderRepository.findById(id);
         if (orderBox.isPresent()) {
-            Ordar ordar1 = orderBox.get();
-            ordar1.setStatus(ordar.getStatus());
-            ordar1.setServed(ordar.getServed());
-            orderRepository.save(ordar1);
+            Sale order1 = orderBox.get();
+            order1.setStatus(order.getStatus());
+            order1.setServed(order.getServed());
+            orderRepository.save(order1);
         }
     }
 
     //method to save order request data to database
-    public Ordar add(Ordar ordar) {
+    public Sale add(Sale order) {
         //create now time Date object to input for order taken time
         Date now = new Date();
         //set order time taken to now
-        ordar.setTaken(now);
+        order.setTaken(now);
         //save order
-        orderRepository.save(ordar);
-        return ordar;
+        orderRepository.save(order);
+        return order;
     }
 
-    public Ordar get(long id) {
+    public Sale get(long id) {
         return orderRepository.findById(id).get();
     }
 
-    public Iterable<Ordar> getAll() {
+    public Iterable<Sale> getAll() {
         return orderRepository.findAll();
     }
 
-    public Ordar remove(long id){
-        Ordar ordar = orderRepository.findById(id).get();
-        orderRepository.deleteById(ordar.getId());
-        return ordar;
+    public Sale remove(long id){
+        Sale order = orderRepository.findById(id).get();
+        orderRepository.deleteById(order.getId());
+        return order;
     }
 
-    public List<Ordar> getByUserId(long id) {
+    public List<Sale> getByUserId(long id) {
         return orderRepository.findByStaffId(id);
     }
 
-    public void addItems(Ordar ordar) {
+    public void addItems(Sale order) {
     }
 }

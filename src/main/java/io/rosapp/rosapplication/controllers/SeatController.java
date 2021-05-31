@@ -1,6 +1,7 @@
 package io.rosapp.rosapplication.controllers;
 
 import io.rosapp.rosapplication.entities.Seat;
+import io.rosapp.rosapplication.entities.Sale;
 import io.rosapp.rosapplication.services.SeatService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -41,4 +42,12 @@ public class SeatController {
     public void UpdateSeat(@RequestBody Seat seat, @PathVariable long id){
         seatService.update(seat, id);
     }
+
+    //extra methods to get items in the menu
+//    @GetMapping(path="/order/{id}/seats")
+//    public List<Sale> getSeatOrders(@PathVariable long id){
+//        List<Sale> orders = seatService.getOrdersBySeatId(id);
+//        return orders;
+//    }
+
 }

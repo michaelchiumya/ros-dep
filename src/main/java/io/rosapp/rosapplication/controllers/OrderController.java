@@ -1,6 +1,6 @@
 package io.rosapp.rosapplication.controllers;
 
-import io.rosapp.rosapplication.entities.Ordar;
+import io.rosapp.rosapplication.entities.Sale;
 import io.rosapp.rosapplication.services.OrderService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -17,34 +17,34 @@ public class OrderController {
     private  final OrderService orderService;
 
         @PostMapping(path = "/order")
-        public Ordar postOrder(@RequestBody Ordar ordar){
-            return orderService.add(ordar);
+        public Sale postOrder(@RequestBody Sale order){
+            return orderService.add(order);
         }
 
         @GetMapping(path="/order/{id}")
-        public Ordar getOrder(@PathVariable long id){
+        public Sale getOrder(@PathVariable long id){
             return orderService.get(id);
         }
 
         @GetMapping(path="/orders")
-        public List<Ordar> getOrders(){
-            List<Ordar> orders = new ArrayList<>();
+        public List<Sale> getOrders(){
+            List<Sale> orders = new ArrayList<>();
             orderService.getAll().forEach(orders::add);
             return orders;
         }
 
         @DeleteMapping(path="/order/{id}")
-        public Ordar deleteOrder(@PathVariable long id) {
+        public Sale deleteOrder(@PathVariable long id) {
             return orderService.remove(id);
         }
 
         @PutMapping(path="/order/{id}")
-        public void UpdateOrder(@RequestBody Ordar ordar, @PathVariable long id){
-            orderService.update(ordar, id);
+        public void UpdateOrder(@RequestBody Sale order, @PathVariable long id){
+            orderService.update(order, id);
         }
 
        @GetMapping(path="/user/{id}/orders")
-       public List<Ordar> getUserOrders(@PathVariable long id){
+       public List<Sale> getUserOrders(@PathVariable long id){
         return orderService.getByUserId(id);
     }
 

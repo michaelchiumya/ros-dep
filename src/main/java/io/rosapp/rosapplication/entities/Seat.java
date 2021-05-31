@@ -1,12 +1,16 @@
 package io.rosapp.rosapplication.entities;
 
-import lombok.*;
-import org.springframework.core.annotation.Order;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
-@RequiredArgsConstructor
-@AllArgsConstructor
+
 @NoArgsConstructor
 @Getter
 @Setter
@@ -19,8 +23,8 @@ public class Seat {
     private long id;
     private String name;
     private String status;
-    @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Ordar ordar;
+    @OneToMany(cascade = CascadeType.ALL ,fetch = FetchType.LAZY)
+    @JsonManagedReference
+    private Set<Sale> sales = new HashSet<>();
 
 }
