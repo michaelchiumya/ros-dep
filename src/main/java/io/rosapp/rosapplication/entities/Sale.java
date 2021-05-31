@@ -24,7 +24,6 @@ public class Sale {
 
     @ManyToOne
     @JoinColumn(name = "staff_id", nullable = false)
-    @JsonBackReference
     Staff staff;
 
     @ManyToOne

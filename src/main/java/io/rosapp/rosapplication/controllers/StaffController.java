@@ -15,29 +15,29 @@ public class StaffController {
 
     private  final StaffService staffService;
 
-    @PostMapping(path = "/user")
+    @PostMapping(path = "/staff")
     public Staff postUser(@RequestBody Staff user){
         return staffService.add(user);
     }
 
-    @GetMapping(path="/user/{id}")
+    @GetMapping(path="/staff/{id}")
     public Staff getUser(@PathVariable long id){
         return staffService.get(id);
     }
 
-    @GetMapping(path="/users")
+    @GetMapping(path="/All-staff")
     public List<Staff> getUsers(){
         List<Staff> users = new ArrayList<>();
         staffService.getAll().forEach(users::add);
         return users;
     }
 
-    @DeleteMapping(path="/user/{id}")
+    @DeleteMapping(path="/staff/{id}")
     public Staff deleteUser(@PathVariable long id) {
         return staffService.remove(id);
     }
 
-    @PutMapping(path="/user/{id}")
+    @PutMapping(path="/staff/{id}")
     public void UpdateUser(@RequestBody Staff user, @PathVariable long id){
         staffService.update(user, id);
     }

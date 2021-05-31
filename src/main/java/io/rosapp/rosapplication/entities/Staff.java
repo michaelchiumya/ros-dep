@@ -1,6 +1,5 @@
 package io.rosapp.rosapplication.entities;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -22,7 +21,6 @@ public class Staff {
     private String type;
     private String password;
     @OneToMany(cascade = CascadeType.ALL , mappedBy = "staff",fetch = FetchType.LAZY)
-    @JsonManagedReference
     List<Sale> sales ;
 
 }
