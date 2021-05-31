@@ -21,7 +21,7 @@ public class Staff {
     private String email;
     private String type;
     private String password;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "staff",fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL , mappedBy = "staff",fetch = FetchType.LAZY)
     @JsonManagedReference
     List<Ordar> orders ;
 

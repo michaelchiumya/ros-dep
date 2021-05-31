@@ -1,10 +1,14 @@
 package io.rosapp.rosapplication.services;
 
+import io.rosapp.rosapplication.entities.ItemOnMenu;
 import io.rosapp.rosapplication.entities.Ordar;
 import io.rosapp.rosapplication.repositories.OrderRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -50,5 +54,9 @@ public class OrderService {
         Ordar ordar = orderRepository.findById(id).get();
         orderRepository.deleteById(ordar.getId());
         return ordar;
+    }
+
+    public List<Ordar> getByUserId(long id) {
+        return orderRepository.findByStaffId(id);
     }
 }

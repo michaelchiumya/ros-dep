@@ -41,7 +41,7 @@ public class ItemOnMenuController {
      itemOnMenuService.update(item, id);
     }
 
-    //extra methods
+    //extra methods to get items in the menu
     @GetMapping(path="/menu/{id}/items")
     public List<ItemOnMenu> getMenuItems(@PathVariable long id){
         List<ItemOnMenu> items = itemOnMenuService.getItemsByMenuId(id);

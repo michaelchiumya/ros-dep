@@ -43,5 +43,10 @@ public class OrderController {
             orderService.update(ordar, id);
         }
 
+       @GetMapping(path="/user/{id}/orders")
+       public List<Ordar> getUserOrders(@PathVariable long id){
+        return orderService.getByUserId(id);
+    }
+
 }
 
