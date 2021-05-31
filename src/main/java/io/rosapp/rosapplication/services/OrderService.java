@@ -59,4 +59,7 @@ public class OrderService {
     public List<Ordar> getByUserId(long id) {
         return orderRepository.findByStaffId(id);
     }
+
+    public void addItems(Ordar ordar) {
+    }
 }
