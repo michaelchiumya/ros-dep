@@ -26,11 +26,11 @@ public class OrderController {
             return orderService.get(id);
         }
 
-        @GetMapping(path="/ordars")
+        @GetMapping(path="/orders")
         public List<Ordar> getOrders(){
-            List<Ordar> ordars = new ArrayList<>();
-            orderService.getAll().forEach(ordars::add);
-            return ordars;
+            List<Ordar> orders = new ArrayList<>();
+            orderService.getAll().forEach(orders::add);
+            return orders;
         }
 
         @DeleteMapping(path="/order/{id}")

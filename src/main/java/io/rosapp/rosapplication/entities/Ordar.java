@@ -1,11 +1,10 @@
 package io.rosapp.rosapplication.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 @RequiredArgsConstructor
 @AllArgsConstructor
@@ -13,7 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "ordar")//changing class name to 'order' conflicts with jpa/sql key order word
+@Table(name = "ordar")//changing class name to 'order' conflicts with jpa/sql key word 'order'
 public class Ordar {
 
     @Id @NonNull
@@ -22,13 +21,10 @@ public class Ordar {
     private String status;
     private Date taken;
     private Date served;
-
     @ManyToOne
-    @JoinColumn(name = "staff_id")
+    @JoinColumn(name = "staff_id", nullable = false)
+    @JsonBackReference
     Staff staff;
-
-    @OneToMany
-    private List<Seat> seat = new ArrayList<>();
 
 
 }

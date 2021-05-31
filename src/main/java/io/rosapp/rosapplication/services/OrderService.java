@@ -4,6 +4,7 @@ import io.rosapp.rosapplication.entities.Ordar;
 import io.rosapp.rosapplication.repositories.OrderRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.Optional;
 
 @Service
@@ -26,7 +27,13 @@ public class OrderService {
         }
     }
 
+    //method to save order request data to database
     public Ordar add(Ordar ordar) {
+        //create now time Date object to input for order taken time
+        Date now = new Date();
+        //set order time taken to now
+        ordar.setTaken(now);
+        //save order
         orderRepository.save(ordar);
         return ordar;
     }

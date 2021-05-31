@@ -1,9 +1,9 @@
 package io.rosapp.rosapplication.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -21,7 +21,8 @@ public class Staff {
     private String email;
     private String type;
     private String password;
-    @OneToMany(fetch =  FetchType.EAGER, cascade = {CascadeType.ALL})
-    List<Ordar> orders = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "staff",fetch = FetchType.LAZY)
+    @JsonManagedReference
+    List<Ordar> orders ;
 
 }
