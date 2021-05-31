@@ -42,4 +42,11 @@ public class ItemController {
      itemService.update(item, id);
     }
 
+    //extra methods
+    @GetMapping(path="/menu/{id}/items")
+    public List<Item> getMenuItems(@PathVariable long id){
+        List<Item> items = itemService.getItemsByMenuId(id);
+        return items;
+    }
+
 }

@@ -50,4 +50,8 @@ public class ItemService {
        itemRepository.deleteById(item.getId());
        return item;
     }
+
+    public List<Item> getItemsByMenuId(long id) {
+        return (List<Item>) itemRepository.findByMenuId(id);
+    }
 }
