@@ -46,4 +46,8 @@ public class StaffService {
         staffRepository.deleteById(staff.getId());
         return staff;
     }
+
+    public Staff getByAuth(String password) {
+        return staffRepository.getByPassword(password);
+    }
 }

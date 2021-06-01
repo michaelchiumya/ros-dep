@@ -2,10 +2,7 @@ package io.rosapp.rosapplication.entities;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
 @AllArgsConstructor
@@ -18,5 +15,8 @@ public class ItemOnOrder extends Item{
     @NonNull
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "staff_id")
+    private Staff staff;
 
 }

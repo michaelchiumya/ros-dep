@@ -1,5 +1,6 @@
 package io.rosapp.rosapplication.controllers;
 
+import io.rosapp.rosapplication.entities.Login;
 import io.rosapp.rosapplication.entities.Staff;
 import io.rosapp.rosapplication.services.StaffService;
 import lombok.AllArgsConstructor;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @AllArgsConstructor
 @RequestMapping("/api/v1")
@@ -40,5 +42,11 @@ public class StaffController {
     @PutMapping(path="/staff/{id}")
     public void UpdateUser(@RequestBody Staff user, @PathVariable long id){
         staffService.update(user, id);
+    }
+
+    //placeholder feature
+    @PostMapping(path = "/login")
+    public Staff userLogin(@RequestBody Login user){
+        return this.staffService.getByAuth(user.getPassword());
     }
 }
