@@ -6,8 +6,9 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@NoArgsConstructor
+
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -21,4 +22,5 @@ public class ItemOnMenu extends Item{
     @JoinColumn(name = "menu_id", nullable = false)
     @JsonBackReference
     private Menu menu;
+
 }

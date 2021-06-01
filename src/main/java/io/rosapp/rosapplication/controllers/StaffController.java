@@ -19,7 +19,8 @@ public class StaffController {
 
     @PostMapping(path = "/staff")
     public Staff postUser(@RequestBody Staff user){
-        return staffService.add(user);
+            return staffService.add(user);
+
     }
 
     @GetMapping(path="/staff/{id}")
